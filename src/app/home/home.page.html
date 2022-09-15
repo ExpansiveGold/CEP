@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Star Wars Filmes</ion-title>
+    <ion-title>CEP</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,16 +8,15 @@
 
   <ion-item>
     <ion-label position="floating">Insira seu CEP</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]='cep' placeholder="00000-000" ></ion-input>
   </ion-item>
 
-  <ion-input [(ngModel)]="cep" aria-placeholder="00000-000"></ion-input>
   <ion-button (click)="pesquisar()">Consultar</ion-button>
 
-  <ion-list>
-    <ion-input value="" readonly></ion-input>
-    <ion-input value="" readonly></ion-input>
-    <ion-input value="" readonly></ion-input>
-    <ion-input value="" readonly></ion-input>
-  </ion-list>
+  <ion-card *ngIf='cep'>
+    <p>Logradouro: {{valor.logradouro}}</p>
+    <p>Bairro: {{valor.bairro}}</p>
+    <p>Cidade: {{valor.localidade}}</p>
+    <p>Estado: {{valor.uf}}</p>
+  </ion-card>
 </ion-content>
