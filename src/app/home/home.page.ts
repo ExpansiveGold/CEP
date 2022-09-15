@@ -11,6 +11,7 @@ export class HomePage implements OnInit {
 
   valor: any;
   cep: any;
+  mostrar: any;
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +23,7 @@ export class HomePage implements OnInit {
     
     this.http.get(`https://viacep.com.br/ws/${this.cep}/json/`).subscribe(res =>{
       this.valor = res;
+      this.mostrar = true;
       console.log(this.valor);
     });
   }
